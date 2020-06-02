@@ -1,0 +1,21 @@
+{
+   "Height": "Height",
+   "Weight": "Weight",
+   "Type": "Type",
+   "Ability": "Ability",
+   "Check Stats": "Check Stats",
+   "Toggle Dark Mode": "Toggle Dark Mode",
+   "Click to see the ability description": "Click to see the ability description",
+   "Fire" : "Fire",
+   "Water": "Water",
+   "Insect": "Insect",
+   "Electric": "Electric",
+   "Poison": "Poison",
+   "Grass": "Grass",
+   "Ground": "Ground",
+   "Bug": "Bug",
+   "Flying": "Flying",
+   "Unknown": "Unknown",
+   "Back": "Back",
+   "TooltipLang": "Translate to english"
+}

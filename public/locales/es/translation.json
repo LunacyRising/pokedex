@@ -1,0 +1,21 @@
+{
+    "Height": "Altura",
+    "Weight": "Peso",
+    "Type": "Tipo",
+    "Ability": "Habilidad",
+    "Check Stats": "Verificar Estadísticas",
+    "Toggle Dark Mode": "Cambiar modo oscuro",
+    "Click to see the ability description": "Haga clic para ver la descripción de la habilidad",
+    "Fire" : "Fuego",
+    "Water": "Agua",
+    "Insect": "Insecto",
+    "Electric": "Electrico",
+    "Poison": "Veneno",
+    "Grass": "Hierba",
+    "Ground": "Tierra",
+    "Bug": "Insecto",
+    "Flying": "Volador",
+    "Unknown": "Desconocido",
+    "Back": "Volver",
+    "TooltipLang": "Traducir a español"
+}
