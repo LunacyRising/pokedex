@@ -79,10 +79,8 @@ const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abiliti
 
     const getStats = (pokemonId) => {
          //pokemon existe
-        const pokeExists = pokemon.filter(poke => {
-            return poke.id === pokemonId
-         })
-        if(!pokeExists.length > 0) dispatch(fetchSinglePokemon({pokemonId}));
+        const pokeExists = pokemon.some(poke => poke.id === pokemonId);
+        if(!pokeExists) dispatch(fetchSinglePokemon({pokemonId}));
         setFlip(true)
     }
 
