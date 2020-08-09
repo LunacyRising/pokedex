@@ -1,17 +1,13 @@
 import React  from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Radar } from "react-chartjs-2";
-import { Card, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { Card, Button } from "@material-ui/core";
 
 const ChartStats =  ({ setFlip, pokemonId })  => {
   
   const { pokemon } = useSelector(state => state.pokemonsReducer);
-
-  const { darkMode } = useSelector(state => state.darkModeReducer);
-
-  const dispatch = useDispatch();
 
   const {t} = useTranslation(); 
 
@@ -28,10 +24,7 @@ const ChartStats =  ({ setFlip, pokemonId })  => {
           alignItems: "center",
           flexDirection: "column",
           marginBottom: 20,
-          marginRight: 50,
-          minWidth: 250,
           minHeight: 495,
-          padding: 10,
           boxShadow: "0 0 1px rgba(0, 0, 0, 0.1)",
           '&::after': {
             content: `''`,
@@ -46,15 +39,7 @@ const ChartStats =  ({ setFlip, pokemonId })  => {
           "&:hover, &::after": {
             boxShadow: "0px 0px 0px 3px #bd4040",
             opacity: 1,
-          },
-          "@media(max-width: 320px) and (max-height: 480px)": {
-            minHeight: 410,
-            minWidth: 225,
-            padding: 0
-        },
-          "@media(max-width: 481px) and (max-height: 768px)": {
-            padding: 0
-        },
+          }
       },
       btn: {
         backgroundColor: theme.palette.primary.main,
@@ -96,8 +81,8 @@ const ChartStats =  ({ setFlip, pokemonId })  => {
           <Card className={card}>
             <Radar
                data={state}
-               width={50}
-               height={50}
+               width={75}
+               height={75}
                options={{
                  title:{
                    display:true,

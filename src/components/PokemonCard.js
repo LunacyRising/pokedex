@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import ReactCardFlip from "react-card-flip";
-import { fetchSinglePokemon } from "../actions/pokemonsActions/fetchSinglePokemon";
-import { useSelector,useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Card, Button, Badge, Box } from "@material-ui/core";
+import { fetchSinglePokemon } from "../actions/pokemonsActions/fetchSinglePokemon";
 import pokeball from "../utils/images/pokeball.png";
 import ChartStats from "./chart/ChartStats";
 import PokeTypes from "./pokeDetails/PokeTypes";
@@ -14,35 +14,16 @@ import PokeAbilities from "./pokeDetails/PokeAbilities";
 
 const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abilities}) => {
 
-    const {isLoading, pokemon, abilitiesDescriptions, abilityDescriptionLoading, maxPokemons} = useSelector(state => state.pokemonsReducer);
-
-    const dispatch = useDispatch()
-
-    const [flip, setFlip] = useState(false);
-
-    const {t} = useTranslation(); 
-
-    const getStats = (pokemonId) => {
-         //pokemon existe
-        const pokeExists = pokemon.filter(poke => {
-            return poke.id === pokemonId
-         })
-        if(!pokeExists.length > 0) dispatch(fetchSinglePokemon({pokemonId}));
-        setFlip(true)
-    }
-
     const useStyles = makeStyles(() => ({
+
         card: {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
             position: "relative",
-            marginBottom: 20,
-            marginRight: 50,
-            minWidth: 250, 
             minHeight: 495,
-            padding: 10,
+            marginBottom: 20,
             boxShadow: "0 0 1px rgba(0, 0, 0, 0.1)",
             '&::after': {
             content: `''`,
@@ -58,32 +39,18 @@ const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abiliti
                 boxShadow: "0px 0px 0px 3px #bd4040",
                 opacity: 1,
             },
-              "@media(max-width: 320px) and (max-height: 480px)": {
-                height: 410,
-                minWidth: 225,
-                padding: 0,
-                marginBottom: 15,
-            },
-            "@media(max-width: 481px) and (max-height: 768px)": {
-                padding: 0,
-            },
+            "@media (min-device-width : 768px)": {
+                marginRight: 10
+            }
         },
         name: {
             fontFamily: "Pokemon",
             letterSpacing: 4,
             marginTop: 20,
-            "@media(max-width: 320px) and (max-height: 480px)": {
-                marginTop: 0,
-                fontSize: 16
-            },
         },
         avatar: {
             width: "125px",
             height: "125px",
-            "@media(max-width: 320px) and (max-height: 480px)": {
-                width: 110,
-                height: 110,
-            },
         },
         badge: {
             position: "absolute",
@@ -95,17 +62,29 @@ const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abiliti
             marginTop: 20,
             marginBottom: 20,
             fontSize: "12px",
-            "@media(max-width: 320px) and (max-height: 480px)": {
-                marginTop: 20,
-                marginBottom: 0,
-            },
         },
-        test: {
-            transformStyle: "preserve-3d"
-        }
       }));
-      const classes = useStyles();
-      const {name, avatar, card, badge, stats, test } = classes;
+
+    const classes = useStyles();
+
+    const { name, avatar, card, badge, stats } = classes;
+
+    const { isLoading, pokemon, abilitiesDescriptions, abilityDescriptionLoading, maxPokemons} = useSelector(state => state.pokemonsReducer);
+
+    const dispatch = useDispatch()
+
+    const [ flip, setFlip ] = useState(false);
+
+    const {t} = useTranslation(); 
+
+    const getStats = (pokemonId) => {
+         //pokemon existe
+        const pokeExists = pokemon.filter(poke => {
+            return poke.id === pokemonId
+         })
+        if(!pokeExists.length > 0) dispatch(fetchSinglePokemon({pokemonId}));
+        setFlip(true)
+    }
 
     return (
         <>  

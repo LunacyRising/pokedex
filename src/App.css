@@ -73,19 +73,22 @@ body{
   height: 100px;
 }
 
-.dropdown-enter {
-  opacity: 0;
-  transition: 0.3s all;
+/*estilo de tarjeta pokemon*/
+@media (min-width: 768px) {
+    .react-card-flip {
+      width: 49%;
+      margin-right: 1%;
+  }
 }
-.dropdown-enter-active { 
-  opacity: 1;
-  z-index: 10000;
-  transition: 0.3s all;
+
+@media (min-width: 1200px) {
+    .react-card-flip {
+      width: 24%;
+  }
 }
-.dropdown-exit {
-  opacity: 1;
-}
-.dropdown-exit-active {
-  opacity: 0;
-  transition: 0.3s all;
+
+@media (min-width: 1800px) {
+    .react-card-flip {
+      width: 25%;
+  }
 }
