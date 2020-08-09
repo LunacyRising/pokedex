@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useTranslation } from "react-i18next"; 
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AppBar, Avatar, IconButton, Box, Tooltip, Zoom } from "@material-ui/core";
 import SpeedDial from '@material-ui/lab/SpeedDial';
 import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
@@ -16,22 +16,17 @@ import pokemon from "../../src/utils/images/pokemon.svg";
 import englishicon from "../../src/utils/images/englishicon.svg";
 import spanishicon from "../../src/utils/images/spanishicon.svg";
 import japaneseicon from "../../src/utils/images/japaneseicon.svg";
-import DarkModeButton from "./buttons/DarkModeButton";
-import LightModeButton from "./buttons/LightModeButton";
+import ThemeToggle from "./buttons/ThemeToggle";
 
 const NavBar = () => {
-
-    const { darkMode } = useSelector(state => state.darkModeReducer)
     
     const [open, setOpen] = useState(false);
 
     const [openDial, setOpenDial] = useState(false);
 
-    const [hidden, setHidden] = useState(false);
-
     const dispatch = useDispatch()
     
-    const useStyles = makeStyles((theme) => ({
+    const useStyles = makeStyles(() => ({
 
         container : {
             position: "relative",
@@ -98,9 +93,10 @@ const NavBar = () => {
         }, 
        }));
        const classes = useStyles();
+       
        const { logo, container, langBtnsContainer, english, spanish, japanese, darkModeBtnContainer, hamburgerBtn, spanTooltip } = classes;
 
-       const { t, i18n } = useTranslation();
+       const { i18n } = useTranslation();
 
        const handleClick = (language, number) => {
             i18n.changeLanguage(language);
@@ -140,7 +136,7 @@ const NavBar = () => {
                         <IconButton className={japanese} onClick={() => handleClick("ja", 1)}/>
                     </Tooltip>
                 </Box>
-                {darkMode ? <Box className={darkModeBtnContainer}><LightModeButton setOpen={setOpen}/></Box> : <Box className={darkModeBtnContainer}><DarkModeButton setOpen={setOpen}/></Box>}
+                {<Box className={darkModeBtnContainer}><ThemeToggle setOpen={setOpen}/></Box>}
                 <Box className={hamburgerBtn}>
                     <SpeedDial
                     FabProps={{ size: "small"}}

@@ -1,15 +1,16 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Tooltip, Zoom } from "@material-ui/core";
 import { darkModeSwitch } from "../../actions/darkMode";
 import pokeLight from "../../utils/images/pokeLight.svg";
+import pokeDark from "../../utils/images/pokeDark.svg";
 
 
-const LightModeButton = ({ setOpen }) => {
+const ThemeToggle = ({ setOpen }) => {
 
-    const useStyles = makeStyles((theme) => ({
+    const useStyles = makeStyles(() => ({
         spanTooltip: {
             fontSize: "12px"
         },      
@@ -27,17 +28,19 @@ const LightModeButton = ({ setOpen }) => {
         setOpen(prev => !prev)
     }
 
-    const lightModeTooltip = <span className={spanTooltip}>{t("Toggle Dark Mode")}</span>
+    const { darkMode } = useSelector(state => state.darkModeReducer);
+
+    const tooltipText = <span className={spanTooltip}>{darkMode ? t("Light Theme") : t("Dark Theme")}</span>
 
     return(
-        <div>
-            <Tooltip TransitionComponent={Zoom} title={lightModeTooltip}>
-                <Button onClick={handleDarkMode}><img src={pokeLight} width="35px" height="35px" alt="lightPokeball"></img></Button>
+        <>
+            <Tooltip TransitionComponent={Zoom} title={tooltipText}>
+                <Button onClick={handleDarkMode}><img src={darkMode ? pokeLight : pokeDark} width="35px" height="35px" alt="lightPokeball"></img></Button>
             </Tooltip>
-        </div>
+        </>
     )
 
 }
 
 
-export default LightModeButton
+export default ThemeToggle
