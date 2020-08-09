@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Tooltip, Zoom } from "@material-ui/core";
+import { IconButton, Tooltip, Zoom } from "@material-ui/core";
 import { darkModeSwitch } from "../../actions/darkMode";
 import pokeLight from "../../utils/images/pokeLight.svg";
 import pokeDark from "../../utils/images/pokeDark.svg";
@@ -11,13 +11,18 @@ import pokeDark from "../../utils/images/pokeDark.svg";
 const ThemeToggle = ({ setOpen }) => {
 
     const useStyles = makeStyles(() => ({
+
+        btn:{
+            padding: 0
+        },
         spanTooltip: {
             fontSize: "12px"
         },      
-        }));
+    }));
+
     const classes = useStyles();
 
-    const { spanTooltip } = classes;
+    const { btn, spanTooltip } = classes;
 
     const dispatch = useDispatch()
 
@@ -35,7 +40,7 @@ const ThemeToggle = ({ setOpen }) => {
     return(
         <>
             <Tooltip TransitionComponent={Zoom} title={tooltipText}>
-                <Button onClick={handleDarkMode}><img src={darkMode ? pokeLight : pokeDark} width="35px" height="35px" alt="lightPokeball"></img></Button>
+                <IconButton className={btn} onClick={handleDarkMode}><img src={darkMode ? pokeLight : pokeDark} width="35px" height="35px" alt="lightPokeball"></img></IconButton>
             </Tooltip>
         </>
     )
