@@ -17,10 +17,8 @@ const PokeAbilities = ({ abilities, abilitiesDescriptions, abilityDescriptionLoa
 
     const getAbilityDescription = (abilityName) => {
         // habilidad existe
-        const abilityExists = abilitiesDescriptions.filter( ability => {
-            return ability.name === abilityName
-        })
-        if(!abilityExists.length > 0) dispatch(getPokemonsAbilitiesDescription({abilityName}));
+        const abilityExists = abilitiesDescriptions.some(ability => ability.name === abilityName);
+        if(!abilityExists) dispatch(getPokemonsAbilitiesDescription({abilityName}));
     }
     
     const useStyles = makeStyles(() => ({
