@@ -1,0 +1,22 @@
+{
+    "Height": "高さ",
+    "Weight": "重量",
+    "Type": "タイプ",
+    "Ability": "能力",
+    "Check Stats": "統計をチェック",
+    "Dark Theme": "暗いテーマ",
+    "Light Theme": "ライトテーマ",
+    "Click to see the ability description": "クリックして能力の説明を表示",
+    "Fire" : "火",
+    "Water": "水",
+    "Insect": "昆虫",
+    "Electric": "電気の",
+    "Poison": "毒",
+    "Grass": "沸騰",
+    "Ground": "地面",
+    "Bug": "バグ",
+    "Flying": "飛行",
+    "Unknown": "わからない",
+    "Back": "帰る",
+    "TooltipLang": "英語に翻訳する"
+}

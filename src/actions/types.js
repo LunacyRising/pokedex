@@ -1,0 +1,15 @@
+export const POKEMONS_LOADING = "POKEMONS_LOADING";
+export const FETCH_POKEMONS_SUCCESS = "FETCH_POKEMONS_SUCCESS";
+export const FETCH_POKEMONS_FAIL = "FETCH_POKEMONS_FAIL";
+export const FETCH_NEXT_PAGE_SUCCESS = "FETCH_NEXT_PAGE_SUCCESS";
+export const FETCH_PREVIOUS_PAGE_SUCCESS = "FETCH_PREVIOUS_PAGE_SUCCESS";
+export const DESCRIPTION_LOADING = "DESCRIPTION_LOADING";
+export const FETCH_POKEMONS_ABILITIES_SUCCESS = "FETCH_POKEMONS_ABILITIES_SUCCESS";
+export const FETCH_POKEMONS_ABILITIES_FAIL = "FETCH_POKEMONS_ABILITIES_FAIL";
+export const FETCH_POKEMON_SUCCESS = "FETCH_POKEMON_SUCCESS";
+export const FETCH_POKEMON_FAIL = "FETCH_POKEMON_FAIL";
+export const POKEMON_LOADING = "POKEMON_LOADING";
+///////////////////////////////////////////////////////////////////////////////////
+export const DARK_MODE = "DARK_MODE";
+///////////////////////////////////////////////////////////////////////////////////
+export const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";
