@@ -8,8 +8,7 @@ import {
     FETCH_POKEMONS_ABILITIES_SUCCESS,
     POKEMON_LOADING,
     FETCH_POKEMON_SUCCESS,
-    FETCH_POKEMON_FAIL,
-
+    FETCH_POKEMON_FAIL
   } from "../actions/types";
   
   const initialState = {
@@ -22,6 +21,7 @@ import {
     pokemonLoading: false,
     next: null,
     previous: null,
+    translatedAbilities: [],
     abilitiesDescriptions: []
   };
   
@@ -48,6 +48,11 @@ import {
           ...action.payload,
           isLoading: false,
         };
+      case FETCH_POKEMONS_ABILITIES_SUCCESS:
+        return {
+          ...state,
+          translatedAbilities: [...state.translatedAbilities, ...action.payload.translatedAbilities],
+        }
       case FETCH_POKEMON_SUCCESS:
         return {
           ...state,
