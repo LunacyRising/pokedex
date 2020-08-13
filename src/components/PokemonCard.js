@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import ReactCardFlip from "react-card-flip";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Card, Button, Badge, Box } from "@material-ui/core";
-import { fetchSinglePokemon } from "../actions/pokemonsActions/fetchSinglePokemon";
 import pokeball from "../utils/images/pokeball.png";
 import ChartStats from "./chart/ChartStats";
 import PokeTypes from "./pokeDetails/PokeTypes";
@@ -12,7 +11,7 @@ import PokeBodySpecs from "./pokeDetails/PokeBodySpecs";
 import PokeAbilities from "./pokeDetails/PokeAbilities";
 
 
-const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abilitiesNames}) => {
+const PokemonCard = ({ id, badgeNumber, pokemonName, sprite, types, height, weight, abilitiesNames}) => {
 
     const useStyles = makeStyles(() => ({
 
@@ -69,20 +68,11 @@ const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abiliti
 
     const { name, avatar, card, badge, stats } = classes;
 
-    const { isLoading, pokemon, maxPokemons} = useSelector(state => state.pokemonsReducer);
-
-    const dispatch = useDispatch()
+    const { isLoading, maxPokemons} = useSelector(state => state.pokemonsReducer);
 
     const [ flip, setFlip ] = useState(false);
 
     const {t} = useTranslation(); 
-
-    const getStats = (pokemonId) => {
-         //pokemon existe
-        const pokeExists = pokemon.some(poke => poke.id === pokemonId);
-        if(!pokeExists) dispatch(fetchSinglePokemon({pokemonId}));
-        setFlip(true)
-    }
 
     return (
         <>  
@@ -90,7 +80,7 @@ const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abiliti
                 <Card className={card}>
                     {isLoading  ? <img className="rotating" src={pokeball} alt="pokeball"></img> : 
                     <>
-                        <Badge  className={badge} color="primary" badgeContent={index} max={maxPokemons} />
+                        <Badge  className={badge} color="primary" badgeContent={badgeNumber} max={maxPokemons} />
                         <Typography className={name} variant="h5">{pokemonName}</Typography>
                         <Box>
                             <img className={avatar} src={sprite ? sprite : pokeball } alt="pokemon"/>
@@ -98,10 +88,10 @@ const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abiliti
                         <PokeTypes types={types}/>
                         <PokeBodySpecs height={height} weight={weight} />
                         <PokeAbilities abilitiesNames={abilitiesNames}/>  
-                        <Button onClick={() => getStats(index)} className={stats} variant="contained" color="primary">{t("Check Stats")}</Button>
+                        <Button onClick={() => setFlip(true)} className={stats} variant="contained" color="primary">{t("Check Stats")}</Button>
                     </>}
                 </Card>
-                <ChartStats setFlip={setFlip} pokemonId={index}/> 
+                <ChartStats setFlip={setFlip} pokemonId={id}/> 
             </ReactCardFlip>
         </>
     )
