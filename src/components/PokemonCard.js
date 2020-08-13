@@ -12,7 +12,7 @@ import PokeBodySpecs from "./pokeDetails/PokeBodySpecs";
 import PokeAbilities from "./pokeDetails/PokeAbilities";
 
 
-const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abilities}) => {
+const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abilitiesNames}) => {
 
     const useStyles = makeStyles(() => ({
 
@@ -97,7 +97,7 @@ const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abiliti
                         </Box>
                         <PokeTypes types={types}/>
                         <PokeBodySpecs height={height} weight={weight} />
-                        <PokeAbilities abilities={abilities} abilitiesDescriptions={abilitiesDescriptions} abilityDescriptionLoading={abilityDescriptionLoading}/>  
+                        <PokeAbilities abilitiesNames={abilitiesNames} abilitiesDescriptions={abilitiesDescriptions} abilityDescriptionLoading={abilityDescriptionLoading}/>  
                         <Button onClick={() => getStats(index)} className={stats} variant="contained" color="primary">{t("Check Stats")}</Button>
                     </>}
                 </Card>

@@ -29,7 +29,7 @@ const Pokemon = () => {
         <>  
             <Box className={container}>
                 {pokemons.map(pokemon => (
-                    <PokemonCard key={pokemon.id} index={pokemon.id} pokemonName={pokemon.name} sprite={pokemon.sprites["front_shiny"]} types={pokemon.types} height={pokemon.height} weight={pokemon.weight} abilities={pokemon.abilities}/>
+                    <PokemonCard key={pokemon.id} index={pokemon.id} pokemonName={pokemon.name} sprite={pokemon.sprites["front_shiny"]} types={pokemon.types} height={pokemon.height} weight={pokemon.weight} abilitiesNames={pokemon.abilitiesNames}/>
                 ))} 
             </Box>
         </>
