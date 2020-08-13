@@ -25,7 +25,7 @@ const JapaneseBtn = ({ handleClick }) => {
 
     return(
         <Tooltip TransitionComponent={Zoom} title={<span className={spanTooltip}>日本語に翻訳</span>}>
-            <span className={japanese} onClick={() => handleClick("ja", 1)}/>
+            <span className={japanese} onClick={() => handleClick("ja")}/>
         </Tooltip>
     )
 

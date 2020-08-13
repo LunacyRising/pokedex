@@ -48,9 +48,9 @@ const NavBar = () => {
 
     const { i18n } = useTranslation();
 
-    const handleClick = (language, number) => {
+    const handleClick = (language) => {
         i18n.changeLanguage(language);
-        dispatch(changeLanguage(number));
+        dispatch(changeLanguage(language));
     }
 
     return(

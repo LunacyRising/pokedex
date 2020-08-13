@@ -24,7 +24,7 @@ const SpanishBtn = ({ handleClick }) => {
 
     return(
             <Tooltip TransitionComponent={Zoom} title={<span className={spanTooltip}>Traducir al español</span>}>
-                <span className={spanish} onClick={() => handleClick("es", 4 )}/>
+                <span className={spanish} onClick={() => handleClick("es")}/>
             </Tooltip>
     )
 
