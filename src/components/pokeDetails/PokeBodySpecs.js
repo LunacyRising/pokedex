@@ -37,8 +37,8 @@ const PokeBodySpecs = ({ height, weight }) => {
     return (
         <>  
             <Box className={bodySpecs}>
-                <Typography variant="body2">{`${t("Height")}: ${language === 4 ? heightConverter(height): height} ${language === 4 ? "m" : "fts"}`}</Typography>
-                <Typography style={{marginTop:5}} variant="body2">{`${t("Weight")}: ${language === 4 ? weightConverted(weight): weight} ${language === 4 ? "kg" : "lbs"}`}</Typography>
+                <Typography variant="body2">{`${t("Height")}: ${language === "es" ? heightConverter(height): height} ${language === "es" ? "m" : "fts"}`}</Typography>
+                <Typography style={{marginTop:5}} variant="body2">{`${t("Weight")}: ${language === "es" ? weightConverted(weight): weight} ${language === "es" ? "kg" : "lbs"}`}</Typography>
             </Box>  
         </>
     )
