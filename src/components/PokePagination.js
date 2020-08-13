@@ -2,7 +2,7 @@ import React from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "react-js-pagination";
-import { fetchPokemons } from "../actions/fetchPokemons";
+import { fetchPokemons } from "../actions/pokemonsActions/fetchPokemons";
 import pokemon from "../../src/utils/images/pokemon.svg"; 
 import pokeOpen3 from "../../src/utils/images/pokeOpen3.svg";
 
