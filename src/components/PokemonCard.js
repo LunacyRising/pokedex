@@ -69,7 +69,7 @@ const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abiliti
 
     const { name, avatar, card, badge, stats } = classes;
 
-    const { isLoading, pokemon, abilitiesDescriptions, abilityDescriptionLoading, maxPokemons} = useSelector(state => state.pokemonsReducer);
+    const { isLoading, pokemon, maxPokemons} = useSelector(state => state.pokemonsReducer);
 
     const dispatch = useDispatch()
 
@@ -97,7 +97,7 @@ const PokemonCard = ({index, pokemonName, sprite, types, height, weight, abiliti
                         </Box>
                         <PokeTypes types={types}/>
                         <PokeBodySpecs height={height} weight={weight} />
-                        <PokeAbilities abilitiesNames={abilitiesNames} abilitiesDescriptions={abilitiesDescriptions} abilityDescriptionLoading={abilityDescriptionLoading}/>  
+                        <PokeAbilities abilitiesNames={abilitiesNames}/>  
                         <Button onClick={() => getStats(index)} className={stats} variant="contained" color="primary">{t("Check Stats")}</Button>
                     </>}
                 </Card>
