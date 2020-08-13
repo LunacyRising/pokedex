@@ -1,6 +1,7 @@
 import axios from "axios";
 import { FETCH_POKEMONS_ABILITIES_SUCCESS } from "../types";
 import { removeDuplicates } from "../../helperFunctions/removeDuplicates";
+import { removeDuplicates2 } from "../../helperFunctions/removeDuplicates";
 import { itemExists } from "../../helperFunctions/itemExists";
 
 export const fetchPokemonsAbilities = (pokemons) => async (dispatch, getState) => {
@@ -24,7 +25,7 @@ export const fetchPokemonsAbilities = (pokemons) => async (dispatch, getState) =
 
         const abilities = filteredResults.map(ability => {
             const { flavor_text_entries, id, name, names } = ability.data;
-            const abilitiesDescriptions = removeDuplicates(abilitiesData, "name");
+            const abilitiesDescriptions = removeDuplicates2(flavor_text_entries, "flavor_text");
             return { id, name, names, abilitiesDescriptions }
         })
 
